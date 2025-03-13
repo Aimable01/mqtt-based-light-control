@@ -10,7 +10,7 @@ CLIENT_ID = "python_iot_simulator"
 
 
 # Callback when connected to MQTT broker
-def on_connect(client, userdata, flags, rc):
+def on_connect(client, userdata, flags, rc, properties=None):
     if rc == 0:
         print("✅ Connected to MQTT Broker!")
         # Subscribe to the topic
@@ -34,8 +34,8 @@ def on_message(client, userdata, msg):
         print(f"⚠️ Unknown command: {message}")
 
 
-# Set up MQTT client
-client = mqtt.Client(CLIENT_ID)
+# Set up MQTT client with specified protocol version and callback API version
+client = mqtt.Client(client_id=CLIENT_ID, callback_api_version=mqtt.CallbackAPIVersion.VERSION1)
 client.on_connect = on_connect
 client.on_message = on_message
 
