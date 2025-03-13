@@ -30,7 +30,7 @@ A Python script that:
    ```
 3. Run the simulator:
    ```
-   python mqtt_light_control.py
+   python light_simulation.py
    ```
 
 ### Step 2: Open the Web Interface
